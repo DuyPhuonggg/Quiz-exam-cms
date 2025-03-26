@@ -1,0 +1,32 @@
+<div id="base-0" class="z-0 absolute w-screen h-screen">
+    <div
+        class="relative flex flex-col h-screen w-screen overflow-hidden font-sans dashboard-layout"
+    >
+        <div class="flex-0 overflow-hidden h-full">
+            <div class="dashboard-desktop-layout h-full w-full">
+                <div class="main-header">
+                    <app-admin-header
+                        (onNavigation)="onRedirect($event)"
+                    ></app-admin-header>
+                </div>
+                <div class="main-navigation flex h-full main-nav">
+                    <app-navigation
+                        [currentUser]="currentUser"
+                        [routers]="routes"
+                        [isExpandNav]="isExpandNav"
+                        (onExpandNav)="onExpandNav($event)"
+                        (onNavigation)="onRedirect($event)"
+                    ></app-navigation>
+                </div>
+                <div
+                    class="flex bg-light-1 main-content justify-center overflow-auto"
+                    id="app-body-container"
+                >
+                    <app-admin-body
+                        [activeRouter]="activeRouter"
+                    ></app-admin-body>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

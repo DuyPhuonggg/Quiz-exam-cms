@@ -1,0 +1,58 @@
+<div class="sticky h-min z-5 top-0">
+    <div
+        class="flex brand-500 shadow-md justify-start items-center w-full flex-row flex-nowrap"
+    >
+        <div
+            class="flex max-w-320 p-4 my-0 mx-auto justify-between items-center w-full h-full flex-row flex-nowrap"
+        >
+            <a href="/">
+                <div class="overflow-hidden w-24 h-auto relative">
+                    <img
+                        ngSrc="https://cf.quizizz.com/img/quizizz_logos/white-brandmark-600x164.png"
+                        alt="Quizizz"
+                        class="w-full h-full"
+                        height="26"
+                        width="96"
+                    />
+                </div>
+            </a>
+            <div
+                class="flex gap-2 justify-start items-center flex-row flex-nowrap"
+            >
+                <button
+                    class="bg-transparent hover:bg-ds-dark-500-10 active:bg-ds-dark-500-20 py-1 px-3 border-transparent border h-8 min-w-20 rounded flex items-center justify-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 shrink-0 focus-visible:outline-ds-lilac-500-40 cursor-pointer"
+                    (click)="onRedirect('join')"
+                >
+                    <div class="visible">
+                        <div
+                            class="flex gap-1 justify-center items-center flex-row flex-nowrap"
+                        >
+                            <p
+                                class="text-ds-light-500 select-none text-control-base font-semibold text-nowrap"
+                            >
+                                Join a game
+                            </p>
+                        </div>
+                    </div>
+                </button>
+
+                <button
+                    class="bg-ds-light-500 hover:bg-ds-light-300 active:bg-ds-light-200 py-1 px-3 border-ds-dark-500-20 border h-8 min-w-20 rounded flex items-center justify-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 shrink-0 focus-visible:outline-ds-lilac-500-40 cursor-pointer"
+                    (click)="onRedirect(logButton.href)"
+                >
+                    <div class="visible">
+                        <div
+                            class="flex gap-1 justify-center items-center flex-row flex-nowrap"
+                        >
+                            <p
+                                class="text-ds-dark-500 select-none text-control-base font-semibold text-nowrap"
+                            >
+                                {{ logButton.text }}
+                            </p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

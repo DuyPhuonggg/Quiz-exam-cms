@@ -1,0 +1,463 @@
+<div class="w-full h-full">
+    <div
+        class="root-component flex w-full h-full bg-ds-light-300 sm:bg-ds-light-500 flex-row-reverse"
+    >
+        <div class="app-content h-full w-full transition-all relative">
+            <div class="featured-wrapper">
+                <div class="featured-container">
+                    <app-dashboard-header
+                        [isLogin]="isLogin"
+                        [currentInfo]="currentInfo"
+                    ></app-dashboard-header>
+
+                    <div class="settings-page" shouldfocusgamecodeinput="false">
+                        <div class="settings-page-content">
+                            <div class="settings-page-topbar">
+                                <h1 class="settings-page-heading">Settings</h1>
+                            </div>
+                            <ng-container
+                                *ngIf="false; else appSetting"
+                            ></ng-container>
+                            <ng-container
+                                *ngIf="false; else gameSetting"
+                            ></ng-container>
+                            <ng-container
+                                *ngIf="!isLogin; else authSetting"
+                            ></ng-container>
+
+                            <div class="settings-footer">
+                                <a
+                                    href="#"
+                                    class="settings-footer-link"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    >Contact Us</a
+                                ><a
+                                    rel="noopener noreferrer"
+                                    href="#"
+                                    class="settings-footer-link"
+                                    target="_blank"
+                                    >Terms of Service</a
+                                ><a
+                                    href="#"
+                                    rel="noopener noreferrer"
+                                    class="settings-footer-link"
+                                    target="_blank"
+                                    >Privacy Policy</a
+                                >
+                            </div>
+                        </div>
+                        <app-modal
+                            [(subtitle)]="modalInfo.subtitle"
+                            [(active)]="modalInfo.active"
+                            (onClose)="handleCloseModal()"
+                            (onSave)="handleSaveModal()"
+                        >
+                            <ng-container
+                                *ngIf="modalInfo.alias === 'username'"
+                            >
+                                <input
+                                    id="update-settings-first"
+                                    class="update-settings-input"
+                                    type="text"
+                                    aria-required="true"
+                                    [value]="currentInfo.username"
+                                    [(ngModel)]="currentInfo.username"
+                                />
+                            </ng-container>
+
+                            <ng-container
+                                *ngIf="modalInfo.alias === 'fullName'"
+                            >
+                                <label
+                                    for="update-settings-firstName"
+                                    class="update-settings-password-title"
+                                >
+                                    Enter first name
+                                </label>
+                                <input
+                                    id="update-settings-firstName"
+                                    class="update-settings-input"
+                                    type="text"
+                                    aria-required="true"
+                                    [value]="currentInfo.firstName"
+                                    [(ngModel)]="currentInfo.firstName"
+                                />
+                                <label
+                                    for="update-settings-lastName"
+                                    class="update-settings-password-title"
+                                >
+                                    Enter last name
+                                </label>
+                                <input
+                                    id="update-settings-lastName"
+                                    class="update-settings-input"
+                                    type="text"
+                                    aria-required="true"
+                                    [value]="currentInfo.lastName"
+                                    [(ngModel)]="currentInfo.lastName"
+                                />
+                            </ng-container>
+
+                            <ng-container *ngIf="modalInfo.alias === 'address'">
+                                <label
+                                    for="update-settings-address"
+                                    class="update-settings-instructions"
+                                >
+                                    Address detail
+                                </label>
+                                <input
+                                    id="update-settings-address"
+                                    class="update-settings-input"
+                                    type="text"
+                                    aria-required="true"
+                                    [value]="currentInfo.address"
+                                    [(ngModel)]="currentInfo.address"
+                                />
+                            </ng-container>
+
+                            <ng-container
+                                *ngIf="modalInfo.alias === 'phoneNumber'"
+                            >
+                                <label
+                                    for="update-settings-phoneNumber"
+                                    class="update-settings-instructions"
+                                >
+                                    Contact number
+                                </label>
+                                <input
+                                    id="update-settings-phoneNumber"
+                                    class="update-settings-input"
+                                    type="text"
+                                    aria-required="true"
+                                    [value]="currentInfo.phoneNumber"
+                                    [(ngModel)]="currentInfo.phoneNumber"
+                                />
+                            </ng-container>
+
+                            <ng-container *ngIf="modalInfo.alias === 'gender'">
+                                <label
+                                    for="update-settings-phoneNumber"
+                                    class="update-settings-instructions"
+                                >
+                                    Gender</label
+                                >
+                                <select
+                                    id="update-settings-gender"
+                                    class="update-settings-input"
+                                    aria-required="true"
+                                    [value]="currentInfo.gender"
+                                    [(ngModel)]="currentInfo.gender"
+                                >
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+                                    <option value="unknown">unknown</option>
+                                </select>
+                            </ng-container>
+
+                          <ng-container *ngIf="modalInfo.alias === 'password'">
+                              <label
+                                  for="update-settings-old-password"
+                                  class="update-settings-password-title"
+                              >
+                                  Old password
+                              </label>
+                              <input
+                                  id="update-settings-old-password"
+                                  class="update-settings-input"
+                                  type="text"
+                                  aria-required="true"
+                                  autocomplete="off"
+                              />
+                              <label
+                                  for="update-settings-new-password"
+                                  class="update-settings-password-title"
+                              >
+                                  New password
+                              </label>
+                              <input
+                                  id="update-settings-new-password"
+                                  class="update-settings-input"
+                                  type="text"
+                                  aria-required="true"
+                                  autocomplete="off"
+                              />
+                          </ng-container>
+
+                          <div class="update-settings-feedback">
+                              <span
+                                  class="error"
+                                  *ngIf="validateMessage.error.response.length"
+                                  >{{ validateMessage.error.response }}</span
+                              >
+                          </div>
+                        </app-modal>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #appSetting>
+    <div class="settings-group-container">
+        <div class="settings-group-topbar">
+            <i class="icon-fas-user-edit settings-group-profile-icon"></i>
+            <h2 class="settings-group-heading">
+                {{ isLogin ? 'Profile' : 'App settings' }}
+            </h2>
+        </div>
+        <div
+            *ngIf="isLogin"
+            class="settings-input-container update-language-btn disabled"
+            type="button"
+        >
+            <p class="settings-input-title">Email</p>
+            <p class="settings-input-content">
+                {{ currentInfo.email }}
+            </p>
+        </div>
+        <button
+            *ngIf="isLogin"
+            class="settings-input-container update-language-btn"
+            type="button"
+            (click)="toggleSetting('username')"
+        >
+            <p class="settings-input-title">Username</p>
+            <p class="settings-input-content">
+                {{ currentInfo.username }}
+            </p>
+        </button>
+
+        <button
+            *ngIf="isLogin"
+            class="settings-input-container update-language-btn"
+            type="button"
+            (click)="toggleSetting('fullName')"
+        >
+            <p class="settings-input-title">Name</p>
+            <p class="settings-input-content">
+                {{ currentInfo.firstName }}
+                {{ currentInfo.lastName }}
+            </p>
+        </button>
+        <button
+            *ngIf="isLogin"
+            class="settings-input-container update-language-btn"
+            type="button"
+            (click)="toggleSetting('gender')"
+        >
+            <p class="settings-input-title">Gender</p>
+            <p class="settings-input-content">
+                {{ currentInfo.gender }}
+            </p>
+        </button>
+        <button
+            *ngIf="isLogin"
+            class="settings-input-container update-language-btn"
+            type="button"
+            (click)="toggleSetting('address')"
+        >
+            <p class="settings-input-title">Address</p>
+            <p class="settings-input-content">
+                {{ currentInfo.address }}
+            </p>
+        </button>
+        <button
+            *ngIf="isLogin"
+            class="settings-input-container update-language-btn"
+            type="button"
+            (click)="toggleSetting('phoneNumber')"
+        >
+            <p class="settings-input-title">Phone number</p>
+            <p class="settings-input-content">
+                {{ currentInfo.phoneNumber }}
+            </p>
+        </button>
+
+        <div
+            *ngIf="isLogin"
+            class="settings-input-container update-language-btn disabled"
+            type="button"
+        >
+            <p class="settings-input-title">Role</p>
+            <p class="settings-input-content">{{ currentInfo.role }}</p>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #gameSetting>
+    <div class="settings-group-container">
+        <div class="settings-group-topbar">
+            <i class="icon-fas-cogs settings-group-game-icon"></i>
+            <h2 class="settings-group-heading">Game settings</h2>
+        </div>
+        <button
+            class="settings-input-container update-language-btn"
+            type="button"
+        >
+            <p class="settings-input-title">Language</p>
+            <p class="settings-input-content">English</p>
+        </button>
+        <div class="settings-input-container">
+            <p class="settings-input-title">Background music</p>
+            <button
+                type="button"
+                class="toggle-button select-none cursor-pointer"
+                aria-label="Background music"
+                role="checkbox"
+                aria-checked="false"
+            >
+                <span class="open"></span>
+                <span class="close"></span>
+            </button>
+        </div>
+        <div class="settings-input-container">
+            <p class="settings-input-title">Sound effects</p>
+            <button
+                type="button"
+                class="toggle-button select-none cursor-pointer"
+                aria-label="Sound effects"
+                role="checkbox"
+                aria-checked="false"
+            >
+                <span class="open"></span>
+                <span class="close"></span>
+            </button>
+        </div>
+        <div class="settings-input-container">
+            <p class="settings-input-title">Show memes</p>
+            <button
+                type="button"
+                class="toggle-button select-none cursor-pointer"
+                aria-label="Show memes"
+                role="checkbox"
+                aria-checked="false"
+            >
+                <span class="open"></span>
+                <span class="close"></span>
+            </button>
+        </div>
+        <div class="settings-input-container">
+            <p class="settings-input-title read-aloud-settings-title">
+                Read Aloud
+            </p>
+            <button
+                type="button"
+                class="toggle-button select-none cursor-pointer"
+                aria-label="Read Aloud"
+                role="checkbox"
+                aria-checked="false"
+            >
+                <span class="open"></span>
+                <span class="close"></span>
+            </button>
+        </div>
+        <div class="settings-input-container themes">
+            <p class="settings-input-title">Game Themes</p>
+            <div class="settings-themes-container" role="radiogroup">
+                <button
+                    class="strip-default-btn-style settings-theme-btn selected"
+                    type="button"
+                    aria-pressed="true"
+                >
+                    <div
+                        class="theme-icon-container flex-view all-center classic settings-theme-image"
+                    >
+                        <div
+                            class="theme-icon-wrapper flex-view all-center"
+                            style="width: 34px; height: 34px"
+                        >
+                            <div class="theme-icon"></div>
+                        </div>
+                    </div>
+                    <div class="settings-theme-title">classic</div>
+                </button>
+                <button
+                    class="strip-default-btn-style settings-theme-btn"
+                    type="button"
+                    aria-pressed="false"
+                >
+                    <div
+                        class="theme-icon-container flex-view all-center cosmic-picnic settings-theme-image"
+                    >
+                        <div
+                            class="theme-icon-wrapper flex-view all-center"
+                            style="width: 34px; height: 34px"
+                        >
+                            <div
+                                class="theme-icon"
+                                style="transform: scale(1)"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="settings-theme-title">
+                        cosmic-picnic
+                    </div></button
+                ><button
+                    class="strip-default-btn-style settings-theme-btn"
+                    type="button"
+                    aria-pressed="false"
+                >
+                    <div
+                        class="theme-icon-container flex-view all-center synthwave settings-theme-image"
+                    >
+                        <div
+                            class="theme-icon-wrapper flex-view all-center"
+                            style="width: 34px; height: 34px"
+                        >
+                            <div
+                                class="theme-icon"
+                                style="transform: scale(1)"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="settings-theme-title">synthwave</div></button
+                ><button
+                    class="strip-default-btn-style settings-theme-btn"
+                    type="button"
+                    aria-pressed="false"
+                >
+                    <div
+                        class="theme-icon-container flex-view all-center dogsville settings-theme-image"
+                    >
+                        <div
+                            class="theme-icon-wrapper flex-view all-center"
+                            style="width: 34px; height: 34px"
+                        >
+                            <div
+                                class="theme-icon"
+                                style="transform: scale(1)"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="settings-theme-title">dogsville</div>
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #authSetting>
+    <div class="settings-group-container">
+        <div class="settings-group-topbar">
+            <i class="icon-fas-user-circle settings-group-account-icon"></i>
+            <h2 class="settings-group-heading">Account settings</h2>
+        </div>
+        <button
+            class="strip-default-btn-style settings-input-container update-password-button"
+            type="button"
+            (click)="toggleSetting('password')"
+        >
+            <p class="settings-input-title">Update password</p>
+        </button>
+
+        <button
+            class="strip-default-btn-style settings-input-container log-out-button"
+            type="button"
+            (click)="toggleSetting('log-out')"
+        >
+            <span class="settings-input-title">Log out</span>
+        </button>
+    </div>
+</ng-template>

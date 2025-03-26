@@ -1,0 +1,54 @@
+#register {
+    text-align: center;
+    padding: 20px 0 0 0;
+}
+
+.signup-view {
+    height: calc(100% - 5rem);
+}
+
+.register-form {
+    width: 300px;
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+.background-logged {
+    background-image: url('https://cf.quizizz.com/image/classroom-enjoyment_optim.webp');
+}
+
+.mat-mdc-extended-fab {
+    background-color: rgba(70, 26, 66, var(--tw-bg-opacity));
+    color: #ededed;
+    cursor: pointer !important;
+    pointer-events: visible !important;
+}
+
+.register-alert {
+    padding: 0 0 10px 0;
+    color: var(--mdc-theme-error, #f44336);
+}
+
+@media (min-width: 1025px) {
+    .md\:h-144 {
+        height: 36rem;
+    }
+
+    .md\:w-120 {
+        width: 30rem;
+    }
+
+    .md\:hidden {
+        display: none;
+    }
+
+    .md\:p-10 {
+        padding: 2.5rem;
+    }
+
+    .md\:flex {
+        display: flex;
+    }
+}

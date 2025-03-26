@@ -1,0 +1,23 @@
+<div class="w-full h-full">
+    <div
+        class="root-component flex w-full h-full bg-ds-light-300 sm:bg-ds-light-500 flex-row-reverse"
+    >
+        <div class="app-content h-full w-full transition-all relative">
+            <div class="featured-wrapper">
+                <div class="featured-container">
+                    <app-dashboard-header
+                        [isLogin]="isLogin"
+                        [currentInfo]="currentInfo"
+                    ></app-dashboard-header>
+
+                    <div class="home main-container">
+                        <app-dashboard-main
+                            [currentInfo]="currentInfo"
+                        ></app-dashboard-main>
+                        <app-dashboard-footer></app-dashboard-footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

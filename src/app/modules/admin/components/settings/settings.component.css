@@ -1,0 +1,22 @@
+.settings-layout-desktop {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(12, minmax(0px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 1280px;
+}
+
+.settings-layout-desktop .settings-container.desktop {
+    grid-column: 4 / 10;
+}
+.settings-container {
+    border-top: 6px solid rgb(56, 21, 53);
+    box-shadow:
+        rgba(0, 0, 0, 0.1) 0 1px 3px,
+        rgba(0, 0, 0, 0.11) 0 4px 6px;
+}
+
+i {
+    display: inline-flex !important;
+}

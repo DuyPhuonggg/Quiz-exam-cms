@@ -1,0 +1,12 @@
+button.q-shadow.base {
+    box-shadow: 0 4px #6c4298;
+}
+
+button.q-shadow.white {
+    box-shadow: 0 4px #b6b6b6;
+}
+
+button.q-shadow.super,
+button.q-shadow.super-special {
+    box-shadow: 0 4px #ce8400;
+}

@@ -1,0 +1,249 @@
+<div class="px-10 py-5 rounded-lg bg-light xs:p-8">
+    <button
+        class="transition-colors duration-200 ease-in-out flex items-center justify-center px-3 py-1 text-xs font-semibold h-6 base bg-lilac-faded text-lilac hover:text-lilac-light active:text-lilac-dark rounded secondary relative min-w-max"
+        aria-label="Go back"
+        type="button"
+        (click)="onNextStep('first-step', viewStep)"
+    >
+        <i
+            class="flex items-center fa fa-chevron-left mr-2"
+            style="font-size: 11px"
+        ></i>
+        <span class="title" title="Go back">Go back</span>
+    </button>
+
+    <div class="text-center mt-10">
+        <div class="mb-1 text-xl font-bold text-dark-3">
+            <span>Provide your account details</span>
+        </div>
+        <div
+            class="text-xs font-semibold text-dark-4"
+            *ngIf="mode === 'register'"
+        >
+            <span>Signing up for Personal use.</span>
+        </div>
+    </div>
+    <form class="mt-5 md:mt-6" [formGroup]="userForm">
+        <div class="mt-4" *ngIf="mode === 'register'">
+            <div class="relative w-full">
+                <label
+                    class="font-semibold text-xs mb-1 ml-1 text-dark-4"
+                    for="first_name"
+                    >First name</label
+                >
+                <div class="relative">
+                    <input
+                        id="first_name"
+                        data-hj-allow=""
+                        data-testid="first-name-personal-input"
+                        aria-describedby="input-error-message"
+                        aria-invalid="false"
+                        aria-required="false"
+                        type="text"
+                        name="First name"
+                        class="focus:outline-none h-10 w-full py-2 text-sm placeholder-sm remove-number-selector pl-3 border border-solid border-dark-6 rounded focus:ring-2 focus:ring-lilac focus:ring-offset-0 focus:ring-inset bg-light-3 text-dark-2 border-dark-4 placeholder-dark-5 pr-2"
+                        placeholder="First name"
+                        autocomplete="given-name"
+                        lang=""
+                        maxlength="-1"
+                        tabindex="0"
+                        formControlName="firstName"
+                    />
+                </div>
+                <div
+                    class="flex pt-1 text-xs font-semibold text-red"
+                    aria-live="assertive"
+                    style="display: none"
+                >
+                    <span
+                        class="w-4 h-4 flex items-center justify-center mr-0.5"
+                    >
+                        <i
+                            class="flex items-center far fa-exclamation-circle"
+                            style="font-size: 11px"
+                        ></i>
+                    </span>
+                    <span class="input-error-message"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4" *ngIf="mode === 'register'">
+            <div class="relative w-full">
+                <label
+                    class="font-semibold text-xs mb-1 ml-1 text-dark-4"
+                    for="last_name"
+                    >Last name</label
+                >
+                <div class="relative">
+                    <input
+                        id="last_name"
+                        data-hj-allow=""
+                        data-testid="last-name-personal-input"
+                        aria-describedby="input-error-message"
+                        aria-invalid="false"
+                        aria-required="false"
+                        type="text"
+                        name="Last name"
+                        class="focus:outline-none h-10 w-full py-2 text-sm placeholder-sm remove-number-selector pl-3 border border-solid border-dark-6 rounded focus:ring-2 focus:ring-lilac focus:ring-offset-0 focus:ring-inset bg-light-3 text-dark-2 border-dark-4 placeholder-dark-5 pr-2"
+                        placeholder="Last name"
+                        autocomplete="family-name"
+                        lang=""
+                        maxlength="-1"
+                        tabindex="0"
+                        formControlName="lastName"
+                    />
+                </div>
+                <div
+                    class="flex pt-1 text-xs font-semibold text-red"
+                    aria-live="assertive"
+                    style="display: none"
+                >
+                    <span
+                        class="w-4 h-4 flex items-center justify-center mr-0.5"
+                    >
+                        <i
+                            class="flex items-center far fa-exclamation-circle"
+                            style="font-size: 11px"
+                        ></i>
+                    </span>
+                    <span
+                        class="input-error-message"
+                        data-testid="input-error-message"
+                    ></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="relative w-full">
+                <label
+                    class="font-semibold text-xs mb-1 ml-1 text-dark-4"
+                    for="email"
+                    >Email</label
+                >
+                <div class="relative">
+                    <input
+                        id="email"
+                        aria-describedby="input-error-message"
+                        aria-invalid="false"
+                        aria-required="false"
+                        type="text"
+                        name="Email"
+                        class="focus:outline-none h-10 w-full py-2 text-sm placeholder-sm remove-number-selector pl-3 border border-solid border-dark-6 rounded focus:ring-2 focus:ring-lilac focus:ring-offset-0 focus:ring-inset bg-light-3 text-dark-2 border-dark-4 placeholder-dark-5 pr-2"
+                        placeholder="Email"
+                        autocomplete="given-name"
+                        lang=""
+                        maxlength="-1"
+                        tabindex="0"
+                        formControlName="email"
+                    />
+                </div>
+                <div
+                    class="flex pt-1 text-xs font-semibold text-red"
+                    aria-live="assertive"
+                    *ngIf="validateMessage?.error?.email.length"
+                >
+                    <span
+                        class="w-4 h-4 flex items-center justify-center mr-0.5"
+                    >
+                        <i
+                            class="flex items-center far fa-exclamation-circle"
+                            style="font-size: 11px"
+                        ></i>
+                    </span>
+                    <span class="input-error-message">{{
+                        validateMessage?.error?.email
+                    }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="relative w-full">
+                <label
+                    class="font-semibold text-xs mb-1 ml-1 text-dark-4"
+                    for="password"
+                    >Password</label
+                >
+                <div class="relative">
+                    <input
+                        id="password"
+                        data-hj-allow=""
+                        data-testid="password-personal-input"
+                        aria-describedby="input-error-message"
+                        aria-invalid="false"
+                        aria-required="false"
+                        type="password"
+                        name="Password"
+                        class="focus:outline-none h-10 w-full py-2 text-sm placeholder-sm remove-number-selector pl-3 border border-solid border-dark-6 rounded focus:ring-2 focus:ring-lilac focus:ring-offset-0 focus:ring-inset bg-light-3 text-dark-2 border-dark-4 placeholder-dark-5 pr-2"
+                        placeholder="******"
+                        autocomplete="new-password"
+                        lang=""
+                        maxlength="-1"
+                        tabindex="0"
+                        formControlName="password"
+                    />
+                </div>
+                <div
+                    class="flex pt-1 text-xs font-semibold text-red"
+                    aria-live="assertive"
+                    *ngIf="validateMessage?.error?.password.length"
+                >
+                    <span
+                        class="w-4 h-4 flex items-center justify-center mr-0.5"
+                    >
+                        <i
+                            class="flex items-center far fa-exclamation-circle"
+                            style="font-size: 11px"
+                        ></i>
+                    </span>
+                    <span class="input-error-message">{{
+                        validateMessage?.error?.password
+                    }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <button
+                class="{{
+                    userForm.value.email?.length ||
+                    userForm.value.password?.length
+                        ? 'bg-lilac text-light-3'
+                        : 'bg-dark-6 text-dark-20%'
+                }} transition-colors duration-200 ease-in-out flex items-center justify-center px-4 py-1 text-sm font-semibold h-8 rounded primary relative min-w-max w-full"
+                aria-label="Submit Form"
+                type="button"
+                (click)="onSubmit(mode)"
+            >
+                <span class="title" title="Continue">Continue</span>
+            </button>
+
+            <div
+                class="flex pt-1 text-xs font-semibold text-red justify-center"
+                aria-live="assertive"
+                *ngIf="validateMessage?.error?.response?.length"
+            >
+                <span class="w-4 h-4 flex items-center justify-center mr-0.5">
+                    <i
+                        class="flex items-center far fa-exclamation-circle"
+                        style="font-size: 11px"
+                    ></i>
+                </span>
+                <span class="input-error-message">{{
+                    validateMessage?.error?.response
+                }}</span>
+            </div>
+            <div
+                class="flex pt-1 text-xs font-semibold text-green justify-center"
+                aria-live="assertive"
+                *ngIf="validateMessage?.success?.response?.length"
+            >
+                <span class="input-success-message">{{
+                    validateMessage?.success?.response
+                }}</span>
+            </div>
+        </div>
+    </form>
+</div>

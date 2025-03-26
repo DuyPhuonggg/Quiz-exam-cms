@@ -1,0 +1,173 @@
+<div
+    class="modal-container"
+    *ngIf="activeModal"
+    xmlns="http://www.w3.org/1999/html"
+>
+    <div class="modal-mask-container">
+        <div class="modal-mask" (click)="closeModal()"></div>
+        <div class="modal-body">
+            <form class="update-settings-modal" [formGroup]="userForm">
+                <div class="update-settings-instructions">
+                    {{ modalInfo.title }}
+                </div>
+                <div *ngIf="modalInfo.alias === 'username'">
+                    <label
+                        for="update-settings-first"
+                        class="update-settings-instructions"
+                    >
+                        {{ modalInfo.firstLabel }}</label
+                    ><input
+                        id="update-settings-first"
+                        class="update-settings-input"
+                        type="{{ modalInfo.typeInput || 'text' }}"
+                        aria-required="true"
+                        formControlName="username"
+                    />
+                </div>
+
+                <div *ngIf="modalInfo.alias === 'password'">
+                    <label
+                        for="update-settings-old-password"
+                        class="update-settings-password-title"
+                    >
+                        {{ modalInfo.firstLabel }}
+                    </label>
+                    <input
+                        id="update-settings-old-password"
+                        class="update-settings-input"
+                        type="{{ modalInfo.typeInput || 'text' }}"
+                        aria-required="true"
+                        formControlName="oldPassword"
+                        autocomplete="off"
+                    />
+                    <label
+                        for="update-settings-new-password"
+                        class="update-settings-password-title"
+                    >
+                        {{ modalInfo.secondLabel }}
+                    </label>
+                    <input
+                        id="update-settings-new-password"
+                        class="update-settings-input"
+                        type="{{ modalInfo.typeInput || 'text' }}"
+                        aria-required="true"
+                        autocomplete="off"
+                        formControlName="newPassword"
+                    />
+                </div>
+
+                <div *ngIf="modalInfo.alias === 'fullName'">
+                    <label
+                        for="update-settings-firstName"
+                        class="update-settings-password-title"
+                    >
+                        {{ modalInfo.firstLabel }}
+                    </label>
+                    <input
+                        id="update-settings-firstName"
+                        class="update-settings-input"
+                        type="{{ modalInfo.typeInput || 'text' }}"
+                        aria-required="true"
+                        formControlName="firstName"
+                    />
+                    <label
+                        for="update-settings-lastName"
+                        class="update-settings-password-title"
+                    >
+                        {{ modalInfo.secondLabel }}
+                    </label>
+                    <input
+                        id="update-settings-lastName"
+                        class="update-settings-input"
+                        type="{{ modalInfo.typeInput || 'text' }}"
+                        aria-required="true"
+                        formControlName="lastName"
+                    />
+                </div>
+
+                <div *ngIf="modalInfo.alias === 'address'">
+                    <label
+                        for="update-settings-address"
+                        class="update-settings-instructions"
+                    >
+                        {{ modalInfo.firstLabel }}</label
+                    ><input
+                        id="update-settings-address"
+                        class="update-settings-input"
+                        type="{{ modalInfo.typeInput || 'text' }}"
+                        aria-required="true"
+                        formControlName="address"
+                    />
+                </div>
+
+                <div *ngIf="modalInfo.alias === 'phoneNumber'">
+                    <label
+                        for="update-settings-phoneNumber"
+                        class="update-settings-instructions"
+                    >
+                        {{ modalInfo.firstLabel }}</label
+                    ><input
+                        id="update-settings-phoneNumber"
+                        class="update-settings-input"
+                        type="{{ modalInfo.typeInput || 'text' }}"
+                        aria-required="true"
+                        formControlName="phoneNumber"
+                    />
+                </div>
+
+                <div *ngIf="modalInfo.alias === 'gender'">
+                    <label
+                        for="update-settings-phoneNumber"
+                        class="update-settings-instructions"
+                    >
+                        {{ modalInfo.firstLabel }}</label
+                    >
+                    <select
+                        id="update-settings-gender"
+                        class="update-settings-input"
+                        aria-required="true"
+                        formControlName="gender"
+                    >
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                        <option value="unknown">unknown</option>
+                    </select>
+                </div>
+
+                <div class="update-settings-feedback">
+                    <span
+                        class="error"
+                        *ngIf="validateMessage?.error?.response?.length"
+                        >{{ validateMessage?.error?.response }}</span
+                    >
+                </div>
+
+                <!-- button -->
+                <div class="update-settings-buttons-container">
+                    <button
+                        class="default strip-default-btn-style"
+                        type="button"
+                        (click)="closeModal()"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        class="primary strip-default-btn-style"
+                        type="button"
+                        (click)="onSave(modalInfo.alias)"
+                    >
+                        Save
+                        <div
+                            class="btn-loading flex-view all-center"
+                            *ngIf="modalInfo.loading"
+                        >
+                            <i class="loading-icon icon-fas-sync-alt"></i>
+                        </div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-toast [toast]="toast"></app-toast>

@@ -1,0 +1,181 @@
+<div class="home-container">
+    <div class="content">
+        <div class="content-actionable">
+            <div class="home-proceed-game-container">
+                <div class="home-proceed-game">
+                    <div class="flex flex-col items-center">
+                        <form
+                            id="proceed-game-action-wrapper"
+                            class="box-border flex flex-col sm:flex-row w-full sm:w-auto sm:justify-center sm:items-center gap-2 border-ds-dark-500-20 p-1 border-2 bg-ds-light-400 border-red rounded-2xl"
+                        >
+                            <div class="proceed-game-input-container relative">
+                                <input
+                                    class="check-room-input mb-4 w-full text-ds-black-400 font-semibold rounded-xl border-0 border-box non-landing input-shadow"
+                                    placeholder="Enter a join code"
+                                    type="tel"
+                                    pattern="[0-9 ]*"
+                                    maxlength="8"
+                                    aria-label="Enter a join code to play a game"
+                                />
+                                <!--                                <span class="icon-fas-exclamation-circle error-indicator-icon absolute w-6 h-6 rounded-full right-6 text-2xl top-1/2 text-red -translate-y-1/2"></span>-->
+                            </div>
+                            <button
+                                aria-label=""
+                                class="box-border select-none font-bold border text-center disabled:cursor-auto disabled:text-dark-tertiary disabled:bg-ds-light-200 disabled:hover:border-ds-light-200 text-ds-light-500 bg-ds-lilac-500 border-transparent hover:bg-ds-lilac-400 hover:border-ds-lilac-400 active:bg-ds-lilac-600 active:border-ds-lilac-600 px-4 py-2 text-base sm:text-xl w-fit rounded-lg floatingButton mb-1 cursor-pointer relative check-room-button"
+                                style="
+                                    --fb-default-bg: #6f459b;
+                                    --fb-hover-bg: #8d66af;
+                                "
+                            >
+                                <span class="visible">Join</span>
+                            </button>
+                        </form>
+                        <!--                        <div class="w-full sm:w-70 min-[800px]:w-100">-->
+                        <!--                            <div-->
+                        <!--                                class="w-full flex text-center shadow mt-1.5 rounded-lg justify-center bg-red py-2 px-[13px]"-->
+                        <!--                                tabindex="0"-->
+                        <!--                            >-->
+                        <!--                                <div class="text-sm font-medium text-ds-light-500 flex items-center">-->
+                        <!--                                    <div class="flex justify-center items-center text-center">-->
+                        <!--                                        Please enter a valid game code-->
+                        <!--                                    </div>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="rounded-xl avatar-container flex justify-between pl-4 pr-6 h-50 ml-4 w-100 overflow-hidden min-w-100 relative"
+            >
+                <div class="flex flex-col justify-between h-full py-6">
+                    <div class="font-bold text-ds-lilac-500 text-2xl">
+                        Hello, {{ currentInfo?.username }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="featured-solo-quizzes">
+            <div class="quizzes-and-games-list">
+                <div class="incomplete-game">
+                    <div>
+                        <div class="recent-activity-text select-none">
+                            <p
+                                class="recent-activity-text-foreground select-none"
+                            >
+                                Recent Activity
+                            </p>
+                        </div>
+                        <div
+                            class="carousel-wrapper recent-activity-carousel-container"
+                        >
+                            <div class="navigation"></div>
+                            <div class="carousel-container">
+                                <div class="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="select-none">
+                                            <div class="games">
+                                                <div class="game">
+                                                    <div
+                                                        class="game-card-container"
+                                                    >
+                                                        <div>
+                                                            <div
+                                                                class="curved-edge-container media-dimensions media-wrapper"
+                                                            >
+                                                                <div
+                                                                    class="curve"
+                                                                    style="
+                                                                        width: 400%;
+                                                                        padding-top: 400%;
+                                                                        transform: translateX(
+                                                                                -37.5%
+                                                                            )
+                                                                            translateY(
+                                                                                -100%
+                                                                            );
+                                                                        top: 100%;
+                                                                    "
+                                                                >
+                                                                    <div
+                                                                        class="content-container"
+                                                                        style="
+                                                                            width: calc(
+                                                                                25.02%
+                                                                            );
+                                                                            left: calc(
+                                                                                37.49%
+                                                                            );
+                                                                        "
+                                                                    >
+                                                                        <div
+                                                                            class="media-dimensions media"
+                                                                            role="img"
+                                                                            aria-label="Quiz thumbnail"
+                                                                            style="
+                                                                                background-image: url('https://quizizz.com/media/resource/gs/quizizz-media/quizzes/fdf19b1b-7d86-485d-859d-a13390a9197f?w=200&amp;h=200');
+                                                                            "
+                                                                        ></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="quiz-info"
+                                                            >
+                                                                <div
+                                                                    class="questions-length"
+                                                                >
+                                                                    12 Qs
+                                                                </div>
+                                                            </div>
+                                                            <p
+                                                                data-v-9cb7e71e=""
+                                                                data-cy="gamecard-0"
+                                                                class="quiz-name"
+                                                                style="
+                                                                    display: -webkit-box;
+                                                                    -webkit-box-orient: vertical;
+                                                                    overflow: hidden;
+                                                                    text-overflow: ellipsis;
+                                                                    -webkit-line-clamp: 2;
+                                                                "
+                                                            >
+                                                                Đúng hay sai
+                                                            </p>
+                                                            <!---->
+                                                            <div
+                                                                data-v-9cb7e71e=""
+                                                                class="game-details"
+                                                            >
+                                                                <!----><!---->
+                                                            </div>
+                                                            <div
+                                                                data-v-9cb7e71e=""
+                                                                class="accuracy-bar poor"
+                                                            >
+                                                                <span
+                                                                    data-v-9cb7e71e=""
+                                                                    class="accuracy-bar-text"
+                                                                    >25%
+                                                                    accuracy</span
+                                                                >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!----><!---->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-quiz-recommendations">cmd</div>
+            </div>
+        </div>
+    </div>
+</div>
