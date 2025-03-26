@@ -1,0 +1,24 @@
+<button
+    class="transition-colors duration-200 ease-in-out flex items-center justify-center text-light-3 primary relative"
+    [attr.aria-label]="title"
+    [ngClass]="{
+        'font-normal': fontWeight === 'regular',
+        'font-semibold': fontWeight === 'semibold',
+        'font-bold': fontWeight === 'bold',
+        'text-lg': fontSize === 'lg',
+        'text-xs': fontSize === 'xs',
+        'bg-lilac hover:bg-lilac-light active:bg-lilac-dark': tone === 'lilac',
+        'text-super-dark hover:text-super-light active:text-super-dark bg-super-20%':
+            tone === 'super',
+        'rounded-lg px-7.5 py-2.5 h-10 min-w-max w-full mb-1':
+            variant === 'primary',
+        'rounded-2xl px-4 py-1.5 h-full min-w-full min-h-8 mb-4':
+            variant === 'plain',
+        'q-shadow base': boxShadow,
+    }"
+    type="button"
+    (click)="handleClick()"
+>
+    <ng-content></ng-content>
+    <span class="title" title="{{ title }}">{{ title }}</span>
+</button>

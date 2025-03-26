@@ -1,0 +1,51 @@
+<div class="modal-container" *ngIf="active" xmlns="http://www.w3.org/1999/html">
+    <div class="modal-mask-container">
+        <div class="modal-mask" (click)="handleCancel()"></div>
+        <div class="modal-body slide-enter-to">
+            <div
+                class="modal-body-inner"
+                [class]="{
+                    'modal-body-full': fullWidth,
+                }"
+            >
+                <div
+                    class="modal-title"
+                    [style]="{
+                        'margin-bottom':
+                            subtitle?.length === 0 || subtitle !== null
+                                ? null
+                                : '16px',
+                    }"
+                >
+                    {{ title }}
+                </div>
+                <div class="modal-subtitle" *ngIf="subtitle !== ''">
+                    {{ subtitle }}
+                </div>
+                <ng-content></ng-content>
+                <div class="update-settings-buttons-container">
+                    <button
+                        class="btn-cancel default strip-default-btn-style"
+                        type="button"
+                        (click)="handleCancel()"
+                    >
+                        {{ cancelContent }}
+                    </button>
+                    <button
+                        class="primary strip-default-btn-style"
+                        type="button"
+                        (click)="handleSave()"
+                    >
+                        {{ saveContent }}
+                        <div
+                            class="btn-loading flex-view all-center"
+                            *ngIf="loading"
+                        >
+                            <i class="loading-icon icon-fas-sync-alt"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

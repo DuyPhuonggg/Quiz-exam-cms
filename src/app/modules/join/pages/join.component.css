@@ -1,0 +1,41 @@
+.check-room-input {
+    outline: none;
+}
+
+.check-room-input.landing {
+    height: 32px;
+    padding: 14px;
+    font-size: 16px;
+}
+
+.floatingButton[data-v-7b561d34] {
+    -webkit-box-shadow: 0 4px 0 var(--fb-default-bg);
+    box-shadow: 0 4px 0 var(--fb-default-bg);
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        -webkit-transform 0.2s,
+        -webkit-box-shadow 0.2s;
+}
+
+@media screen and (min-width: 576px) {
+    .check-room-input.landing {
+        width: 320px;
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+}
+
+app-join-footer {
+    width: 100%;
+}
+
+app-recent-activities {
+    width: 80%;
+}
+
+@media (min-width: 576px) {
+    app-recent-activities {
+        margin-bottom: 5rem;
+    }
+}

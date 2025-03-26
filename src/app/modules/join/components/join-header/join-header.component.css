@@ -1,0 +1,46 @@
+.transition-all {
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.landing-header {
+    background: linear-gradient(#0909094d, #0909094d),
+        linear-gradient(#09090933, #09090933);
+}
+
+.text-ds-light-500 {
+    --tw-text-opacity: 1;
+    color: hsl(
+        var(--twc-ds-light-500) /
+            var(--twc-ds-light-500-opacity, var(--tw-text-opacity))
+    );
+}
+
+.bg-ds-light-500-20 {
+    --tw-bg-opacity: 1;
+    background-color: hsl(
+        var(--twc-ds-light-500-20) /
+            var(--twc-ds-light-500-20-opacity, var(--tw-bg-opacity))
+    );
+}
+
+.border-transparent {
+    --tw-border-opacity: 1;
+    border-color: hsl(
+        var(--twc-transparent) /
+            var(--twc-transparent-opacity, var(--tw-border-opacity))
+    );
+}
+
+.hover\:bg-ds-light-500-30:hover {
+    --tw-bg-opacity: 1;
+    background-color: hsl(
+        var(--twc-ds-light-500-30) /
+            var(--twc-ds-light-500-30-opacity, var(--tw-bg-opacity))
+    );
+}
+
+img[data-avartar='default']:hover {
+    opacity: 0.75;
+}

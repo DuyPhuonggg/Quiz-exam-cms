@@ -1,0 +1,13 @@
+<div
+    translate="no"
+    class="snackbar-container {{ animation.current }}"
+    role="alert"
+    *ngIf="toast?.active"
+>
+    <div class="content">
+        <p class="message">
+            {{ toast?.message }}
+        </p>
+    </div>
+    <div class="action"></div>
+</div>

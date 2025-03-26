@@ -1,0 +1,85 @@
+.carousel-wrapper {
+    position: relative;
+}
+
+.navigation {
+    display: none;
+}
+
+@media screen and (min-width: 576px) {
+    .navigation {
+        display: block;
+    }
+}
+
+.carousel-container {
+    overflow: hidden;
+}
+
+.carousel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100%;
+    position: relative;
+    overflow: auto hidden;
+}
+
+[data-v-21dc0495]::-webkit-scrollbar {
+    background: 0 0;
+    width: 0;
+    height: 0;
+}
+
+.carousel-inner {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+}
+
+.carousel-inner.center-align {
+    justify-content: center;
+}
+
+.move-left,
+.move-right {
+    z-index: 1;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 48px;
+    font-size: 20px;
+    display: inline-flex;
+    position: absolute;
+    top: calc(50% - 24px);
+    box-shadow: 0 2px 4px 2px #0000001a;
+}
+
+@media screen and (min-width: 576px) {
+    .move-left,
+    .move-right {
+        top: calc(50% - 24px);
+    }
+}
+
+.move-right {
+    margin-left: 8px;
+    right: 0;
+}
+
+.move-left-icon {
+    margin-right: 3px;
+    left: 0;
+}
+
+.move-right-icon {
+    margin-left: 3px;
+}
+
+.move-left-icon,
+.move-right-icon {
+    color: #8854c0;
+    font-size: 20px;
+}

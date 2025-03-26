@@ -1,0 +1,241 @@
+<div class="header-wrapper">
+    <div class="header">
+        <!-- Mobile screen-->
+        <div class="mobile-route-name-container"></div>
+
+        <!-- Navigation-->
+        <div class="navigation">
+            <div class="logo-img-container" (click)="onRedirect('join')">
+                <a>
+                    <span class="logo-q">
+                        <svg
+                            class="enter-code-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28px"
+                            height="28px"
+                            viewBox="0 0 56 56"
+                        >
+                            <g>
+                                <path
+                                    d="M 7.820312 7.710938 L 7.820312 7.707031 C 7.800781 7.726562 7.785156 7.746094 7.765625 7.765625 C 7.746094 7.785156 7.726562 7.800781 7.707031 7.816406 L 7.710938 7.820312 C -2.605469 18.257812 -2.570312 35.082031 7.820312 45.472656 C 15.769531 53.421875 27.480469 55.308594 37.21875 51.136719 C 37.824219 50.878906 38.34375 50.515625 38.777344 50.085938 C 40.632812 48.230469 40.78125 45.074219 38.765625 43.058594 C 37.320312 41.613281 35.136719 41.140625 33.257812 41.941406 C 27.175781 44.535156 19.863281 43.355469 14.898438 38.390625 C 8.398438 31.890625 8.386719 21.367188 14.84375 14.84375 C 21.367188 8.386719 31.890625 8.398438 38.390625 14.898438 C 43.355469 19.863281 44.535156 27.175781 41.941406 33.257812 C 41.140625 35.136719 41.613281 37.320312 43.058594 38.765625 C 45.074219 40.78125 48.230469 40.632812 50.085938 38.777344 C 50.515625 38.34375 50.878906 37.824219 51.136719 37.21875 C 55.308594 27.480469 53.421875 15.769531 45.472656 7.816406 C 35.082031 -2.570312 18.257812 -2.605469 7.820312 7.710938 "
+                                    style="fill: rgb(70, 26, 66)"
+                                ></path>
+                                <path
+                                    d="M 54.089844 54.089844 C 51.714844 56.460938 47.863281 56.460938 45.488281 54.089844 C 43.113281 51.714844 43.113281 47.863281 45.488281 45.488281 C 47.863281 43.113281 51.714844 43.113281 54.089844 45.488281 C 56.460938 47.863281 56.460938 51.714844 54.089844 54.089844 "
+                                    style="fill: rgb(70, 26, 66)"
+                                ></path>
+                            </g>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+            <div class="search-input-container">
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Find a quiz"
+                    data-cy="header-search-field"
+                />
+                <a>
+                    <span class="search-icon-container">
+                        <i class="icon-fas-search search-icon"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="navigation-items">
+                <a
+                    class="navigation-menu-item link-is-active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                >
+                    <div class="">
+                        <span class="">
+                            <i class="icon-far-home inactive-icon"></i>
+                            <i class="icon-fas-home active-icon"></i>
+                        </span>
+                        <span class="nav-item-title">Home</span>
+                    </div>
+                    <div class="link-underline link-home-underline"></div>
+                </a>
+                <a
+                    class="navigation-menu-item"
+                    role="tab"
+                    aria-selected="false"
+                    tabindex="0"
+                >
+                    <div class="">
+                        <span>
+                            <i class="icon-far-history inactive-icon"></i>
+                            <i class="icon-fas-history active-icon"></i>
+                        </span>
+                        <span class="nav-item-title">Activity</span>
+                    </div>
+                    <div class="link-underline"></div>
+                </a>
+                <a
+                    class="navigation-menu-item"
+                    role="tab"
+                    aria-selected="false"
+                    tabindex="0"
+                >
+                    <div class="">
+                        <span>
+                            <i class="icon-far-classes inactive-icon"></i>
+                            <i class="icon-fas-classes active-icon"></i>
+                        </span>
+                        <span class="nav-item-title">Classes</span>
+                    </div>
+                    <div class="link-underline"></div>
+                </a>
+            </div>
+        </div>
+        <!-- Logged-->
+        <ng-container *ngIf="isLogin; else login">
+            <div class="user-info">
+                <button
+                    type="button"
+                    class="admin-external-link"
+                    (click)="onRedirect('admin')"
+                >
+                    <span class="admin-external-link-icon">
+                        <i class="icon-far-plus-circle"></i>
+                    </span>
+                    Create a quiz
+                </button>
+            </div>
+        </ng-container>
+        <!-- Dropdown-->
+        <div class="user-dropdown-container">
+            <button
+                class="user-dropdown-action"
+                aria-label="Settings"
+                type="button"
+                (click)="toggleDropMenu()"
+            >
+                <i
+                    class="icon-far-times"
+                    style="{{ activeDropMenu ? null : 'display: none' }}"
+                ></i>
+                <i
+                    class="icon-far-bars"
+                    style="{{ activeDropMenu ? 'display: none' : null }}"
+                ></i>
+            </button>
+
+            <!-- active dropdown -->
+            <div *ngIf="activeDropMenu">
+                <div
+                    class="user-dropdown {{
+                        animationDropDown.current
+                    }} animated origin-top-right anim-200-duration"
+                >
+                    <div *ngIf="isLogin" class="user-details-container">
+                        <ul class="flex-view flex-col">
+                            <li
+                                class="username"
+                                *ngIf="!!currentInfo?.username"
+                            >
+                                {{ currentInfo?.username }}
+                            </li>
+                            <li class="email light-text-color">
+                                {{ currentInfo?.email }}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul class="user-dropdown-items flex-view flex-col">
+                        <li
+                            class="user-dropdown-list-item strip-default-btn-style"
+                        >
+                            <button
+                                class="user-dropdown-list-item-content strip-default-btn-style"
+                                (click)="onLogged('setting')"
+                            >
+                                <span class="user-dropdown-icon-container">
+                                    <i class="icon-far-cog"></i>
+                                </span>
+                                <span>Settings</span>
+                            </button>
+                        </li>
+                        <li
+                            class="user-dropdown-list-item strip-default-btn-style"
+                        >
+                            <button
+                                *ngIf="!isLogin"
+                                class="user-dropdown-list-item strip-default-btn-style"
+                                (click)="onLogged('login')"
+                            >
+                                <span class="user-dropdown-list-item-content">
+                                    <span class="user-dropdown-icon-container">
+                                        <i
+                                            class="icon-far-sign-out-alt login-icon"
+                                        ></i>
+                                    </span>
+                                    <span>Log in</span>
+                                </span>
+                            </button>
+                        </li>
+                        <li
+                            class="user-dropdown-list-item strip-default-btn-style"
+                        >
+                            <button
+                                *ngIf="!isLogin"
+                                class="user-dropdown-list-item strip-default-btn-style"
+                                (click)="onLogged('register')"
+                            >
+                                <span class="user-dropdown-list-item-content">
+                                    <span class="user-dropdown-icon-container">
+                                        <i
+                                            class="icon-far-user-plus signup-icon"
+                                        ></i>
+                                    </span>
+                                    <span>Sign up</span>
+                                </span>
+                            </button>
+                        </li>
+                        <li
+                            class="user-dropdown-list-item strip-default-btn-style"
+                        >
+                            <button
+                                *ngIf="isLogin"
+                                class="user-dropdown-list-item strip-default-btn-style"
+                                (click)="onLogged('log-out')"
+                            >
+                                <span class="user-dropdown-list-item-content">
+                                    <span class="user-dropdown-icon-container">
+                                        <i
+                                            class="icon-far-sign-out-alt login-icon"
+                                        ></i>
+                                    </span>
+                                    <span>Log out</span>
+                                </span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #login>
+    <div class="flex-view all-center logged-out-menu">
+        <button
+            type="button"
+            aria-label="Log in"
+            class="login-button"
+            (click)="onLogged('login')"
+        >
+            Log in
+        </button>
+        <button
+            type="button"
+            aria-label="Sign up"
+            class="signup-button"
+            (click)="onLogged('register')"
+        >
+            Sign up
+        </button>
+    </div>
+</ng-template>

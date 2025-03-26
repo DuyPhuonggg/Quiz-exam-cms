@@ -1,0 +1,12 @@
+.z-5 {
+    z-index: 5;
+}
+
+.h-min {
+    height: -moz-min-content;
+    height: min-content;
+}
+
+.max-w-320 {
+    max-width: 80rem;
+}

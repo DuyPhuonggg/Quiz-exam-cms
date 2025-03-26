@@ -1,0 +1,343 @@
+<div class="overflow-auto settings-layout-desktop p-8">
+    <div
+        class="settings-container flex flex-col p-6 rounded bg-light-3 desktop"
+    >
+        <div class="flex mt-6 text-2xl font-bold justify-left text-dark-3">
+            <span>Settings</span>
+        </div>
+        <div
+            class="pb-3 mt-8 mb-6 text-base font-semibold border-b h-9 border-dark-6"
+        >
+            <i
+                class="flex items-center fa fa-user-circle mr-2"
+                style="font-size: 16px"
+            ></i>
+            <span>Account</span>
+        </div>
+        <div class="email">
+            <div class="mb-1 text-xs font-semibold text-dark-3">
+                <span>Email</span>
+            </div>
+            <div class="relative w-full" aria-label="Email">
+                <div class="relative">
+                    <input
+                        id="email-input"
+                        aria-describedby="input-error-message"
+                        aria-invalid="false"
+                        aria-required="false"
+                        type="text"
+                        name=""
+                        class="focus:outline-none w-full py-2 text-sm placeholder-sm font-semibold remove-number-selector pl-3 border border-solid border-dark-6 rounded focus:ring-2 focus:ring-lilac focus:ring-offset-0 bg-light-3 text-dark-2 border-dark-4 placeholder-dark-5 pr-2 h-10"
+                        placeholder="johndoe@company.com "
+                        autocomplete="off"
+                        lang=""
+                        maxlength="-1"
+                        tabindex="0"
+                    />
+                </div>
+                <div
+                    class="flex pt-1 text-xs font-semibold text-red"
+                    aria-live="assertive"
+                    style="display: none"
+                >
+                    <span
+                        class="w-4 h-4 flex items-center justify-center mr-0.5"
+                        ><i
+                            class="flex items-center far fa-exclamation-circle"
+                            style="font-size: 11px"
+                        ></i></span
+                    ><span
+                        id="input-error-message"
+                        data-testid="input-error-message"
+                    ></span>
+                </div>
+                <!---->
+            </div>
+            <div
+                class="flex mt-2 text-xs font-semibold flex-column text-dark-3"
+                style="display: none"
+            >
+                <div class="mr-0.5">
+                    <i
+                        class="flex items-center far fa-info-circle"
+                        style="font-size: 12px"
+                    ></i>
+                </div>
+                <div>
+                    <span
+                        >As a student, your email is hashed and protected for
+                        privacy</span
+                    >
+                </div>
+            </div>
+            <div
+                class="mt-2 text-xs font-semibold text-red"
+                style="display: none"
+            ></div>
+        </div>
+
+        <div class="username mb-6">
+            <div class="mt-6 mb-1 text-xs font-semibold text-dark-3">
+                <span>Username</span>
+            </div>
+            <div class="relative w-full" aria-label="Username">
+                <div class="relative">
+                    <input
+                        id="username-input"
+                        data-hj-allow=""
+                        data-testid="username-input"
+                        aria-describedby="input-error-message"
+                        aria-invalid="false"
+                        aria-required="false"
+                        type="text"
+                        name=""
+                        class="focus:outline-none w-full py-2 text-sm placeholder-sm font-semibold remove-number-selector pl-3 border border-solid border-dark-6 rounded focus:ring-2 focus:ring-lilac focus:ring-offset-0 bg-light-3 text-dark-2 border-dark-4 placeholder-dark-5 pr-2 h-10"
+                        placeholder="johndoe42 "
+                        autocomplete="off"
+                        lang=""
+                        maxlength="-1"
+                        tabindex="0"
+                    />
+                </div>
+                <div
+                    class="flex pt-1 text-xs font-semibold text-red"
+                    aria-live="assertive"
+                    style="display: none"
+                >
+                    <span
+                        class="w-4 h-4 flex items-center justify-center mr-0.5"
+                        ><i
+                            class="flex items-center far fa-exclamation-circle"
+                            style="font-size: 11px"
+                        ></i></span
+                    ><span id="input-error-message"></span>
+                </div>
+            </div>
+            <div
+                class="mt-2 text-xs font-semibold text-red"
+                style="display: none"
+            ></div>
+        </div>
+        <app-button
+            title="Save changes"
+            variant="primary"
+            (onClick)="handleClick()"
+            [fontWeight]="'semibold'"
+            [fontSize]="'lg'"
+            [boxShadow]="true"
+        >
+        </app-button>
+        <div
+            class="pb-3 mt-12 mb-6 text-base font-semibold border-b h-9 border-dark-6"
+        >
+            <i
+                class="flex items-center fa fa-language mr-2"
+                style="font-size: 16px"
+            ></i>
+            <span>Language</span>
+        </div>
+        <div class="mb-1 text-xs font-semibold text-dark-3">
+            <span>Select preferred language</span>
+        </div>
+        <div input-id="lang-input">
+            <div class="select-box">
+                <div
+                    id="38"
+                    class="label font-semibold text-xs mb-1 ml-1 text-dark-4 sr-only"
+                >
+                    Select preferred language (with selected value)
+                </div>
+                <div
+                    class="select w-full inline-flex relative {{
+                        isExpandLanguage ? 'z-on-overlay' : null
+                    }}"
+                >
+                    <button
+                        id="39"
+                        type="button"
+                        data-testid="generic-select-box"
+                        class="listbox-button flex items-center cursor-pointer box-border text-left rounded font-semibold text-sm text-dark-3 p-4 border border-dark-6 text-dark-2 pl-2 pr-1 py-2 h-10 w-full"
+                        aria-haspopup="listbox"
+                        aria-labelledby="38 39"
+                        aria-expanded="false"
+                        (click)="handleExpandLanguage(!isExpandLanguage)"
+                    >
+                        <div
+                            class="flex items-center justify-center mr-2 w-6 h-6"
+                            aria-hidden="true"
+                        >
+                            <i
+                                class="flex items-center fas fa-flag"
+                                style="font-size: 12px"
+                            ></i>
+                        </div>
+                        <div
+                            class="title w-full truncate text-sm"
+                            data-cy="select-box-value:"
+                            aria-live="assertive"
+                        >
+                            English
+                        </div>
+                        <div
+                            class="ml-auto flex items-center justify-center w-6 h-6"
+                            aria-hidden="true"
+                        >
+                            <i
+                                class="flex items-center fas fa-caret-down text-dark-3"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+                    </button>
+                    <ul
+                        class="listbox overflow-y-auto z-30 list bg-light-3 shadow-soft-high w-full transform rounded transition-transform mt-10 max-h-50 origin-top"
+                        [ngClass]="{
+                            'scale-y-0': !isExpandLanguage,
+                            'scale-y-100': isExpandLanguage,
+                        }"
+                        aria-labelledby="38"
+                        role="listbox"
+                        activedescendant="40"
+                        style="position: absolute; width: 552px"
+                    >
+                        <ng-container *ngFor="let language of languages">
+                            <li
+                                id="{{ language }}"
+                                class="option hover:bg-dark-5% cursor-pointer p-2 flex border-2 border-b-2 border-lilac bg-lilac-faded text-lilac border-lilac-faded"
+                                role="option"
+                            >
+                                <div class="text-lilac">
+                                    <div
+                                        class="item-title font-semibold text-sm"
+                                    >
+                                        {{
+                                            language === 'en' ? 'English' : null
+                                        }}
+                                        {{
+                                            language === 'vi'
+                                                ? 'Việt Nam'
+                                                : null
+                                        }}
+                                    </div>
+                                </div>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div
+            class="pb-3 mt-12 mb-6 text-base font-semibold border-b h-9 border-dark-6"
+        >
+            <i
+                class="flex items-center fa fa-lock mr-2"
+                style="font-size: 16px"
+            ></i>
+            <span>Password</span>
+        </div>
+        <form class="password-form">
+            <div class="mb-1 text-xs font-semibold text-dark-3">
+                <span>New password (At least 6 characters)</span>
+            </div>
+            <div class="relative w-full" aria-label="New password">
+                <div class="relative">
+                    <!----><input
+                        id="new-password"
+                        data-hj-allow=""
+                        data-testid="new-password-input"
+                        aria-describedby="input-error-message"
+                        aria-invalid="false"
+                        aria-required="false"
+                        type="password"
+                        name=""
+                        class="focus:outline-none w-full py-2 text-sm placeholder-sm remove-number-selector pl-3 border border-solid border-dark-6 rounded focus:ring-2 focus:ring-lilac focus:ring-offset-0 bg-light-3 text-dark-2 border-dark-4 placeholder-dark-5 pr-2 h-10"
+                        placeholder=" "
+                        autocomplete="off"
+                        lang=""
+                        maxlength="-1"
+                        tabindex="0"
+                    /><!----><!----><!----><!----><!---->
+                </div>
+                <div
+                    class="flex pt-1 text-xs font-semibold text-red"
+                    aria-live="assertive"
+                    style="display: none"
+                >
+                    <span
+                        class="w-4 h-4 flex items-center justify-center mr-0.5"
+                        ><i
+                            class="flex items-center far fa-exclamation-circle"
+                            style="font-size: 11px"
+                        ></i></span
+                    ><span
+                        id="input-error-message"
+                        data-testid="input-error-message"
+                    ></span>
+                </div>
+                <!---->
+            </div>
+            <div
+                class="mt-2 text-xs font-semibold text-red"
+                data-testid="new-pwd-error"
+                style="display: none"
+            ></div>
+            <div class="mt-6 mb-1 text-xs font-semibold text-dark-3">
+                <span>New password again</span>
+            </div>
+            <div class="relative w-full" aria-label="New password repeat">
+                <!---->
+                <div class="relative">
+                    <!----><input
+                        id="repeat-password"
+                        data-hj-allow=""
+                        data-testid="repeat-password-input"
+                        aria-describedby="input-error-message"
+                        aria-invalid="false"
+                        aria-required="false"
+                        type="password"
+                        name=""
+                        class="focus:outline-none w-full py-2 text-sm placeholder-sm remove-number-selector pl-3 border border-solid border-dark-6 rounded focus:ring-2 focus:ring-lilac focus:ring-offset-0 bg-light-3 text-dark-2 border-dark-4 placeholder-dark-5 pr-2 h-10"
+                        placeholder=" "
+                        autocomplete="off"
+                        lang=""
+                        maxlength="-1"
+                        tabindex="0"
+                    /><!----><!----><!----><!----><!---->
+                </div>
+                <div
+                    class="flex pt-1 text-xs font-semibold text-red"
+                    aria-live="assertive"
+                    style="display: none"
+                >
+                    <span
+                        class="w-4 h-4 flex items-center justify-center mr-0.5"
+                        ><i
+                            class="flex items-center far fa-exclamation-circle"
+                            style="font-size: 11px"
+                        ></i></span
+                    ><span
+                        id="input-error-message"
+                        data-testid="input-error-message"
+                    ></span>
+                </div>
+                <!---->
+            </div>
+            <div
+                class="mt-2 text-xs font-semibold text-red"
+                data-testid="repeat-pwd-error"
+                style="display: none"
+            ></div>
+            <button
+                class="transition-colors duration-200 ease-in-out flex items-center justify-center px-7.5 py-2.5 text-lg font-semibold q-shadow mb-1 h-10 bg-dark-6 text-dark-20% cursor-not-allowed rounded-lg primary relative min-w-max w-full mt-6"
+                aria-label="Update password"
+                disabled=""
+                type="button"
+                translate="no"
+                data-testid="update-password-button"
+            >
+                <span class="title" title="Update password"
+                    >Update password</span
+                >
+            </button>
+        </form>
+    </div>
+</div>

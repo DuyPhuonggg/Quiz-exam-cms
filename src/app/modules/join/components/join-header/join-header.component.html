@@ -1,0 +1,54 @@
+<div
+    class="fixed w-full h-14 left-0 top-0 flex items-center bg-ds-dark-500-30 z-20 transition-all duration-300 ease"
+>
+    <div
+        class="landing-header w-full h-14 flex items-center justify-between border-b-ds-dark-500-20 pl-2 pr-3"
+    >
+        <img alt="" ngSrc="assets/images/logo.svg" height="16" width="48" />
+        <div class="flex items-center">
+            <!-- avatar -->
+            <span
+                *ngIf="isLogin"
+                class="mx-4 box-border select-non font-bold border text-center disabled:cursor-auto disabled:text-ds-light-500-30 disabled:bg-ds-light-500-10 text-ds-light-500 border-transparent py-1 sm:py-2 text-sm sm:text-base w-fit rounded cursor-pointer flex gap-1 items-center h-10"
+                >{{ username }}</span
+            >
+            <div
+                class="overflow-hidden h-[56px] pr-2 pt-2 hover:cursor-pointer"
+                *ngIf="!isLogin"
+            >
+                <div
+                    style="overflow: hidden; width: 48px; height: 80px"
+                    class="transition-all"
+                >
+                    <div class="h-full w-full">
+                        <div class="relative">
+                            <div class="absolute top-0">
+                                <img
+                                    data-avartar="default"
+                                    alt=""
+                                    ngSrc="assets/images/avatar-default.svg"
+                                    height="16"
+                                    width="40"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- separate-->
+            <div class="border-r border-ds-light-500-30 my-2 h-10"></div>
+            <!-- button -->
+
+            <button
+                class="mx-4 box-border select-none font-bold border text-center disabled:cursor-auto disabled:text-ds-light-500-30 disabled:bg-ds-light-500-10 disabled:hover:bg-ds-light-500-10 text-ds-light-500 bg-ds-light-500-20 border-transparent hover:bg-ds-light-500-30 active:bg-ds-light-500-10 px-3 py-1 sm:py-2 text-sm sm:text-base w-fit rounded cursor-pointer flex gap-1 items-center h-10"
+                style="
+                    --fb-default-bg: rgba(255, 255, 255, 0.1);
+                    --fb-hover-bg: rgba(255, 255, 255, 0.2);
+                "
+                (click)="onRedirect()"
+            >
+                <div class="min-w-30 w-full">Dashboard</div>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.main-header-search-bar {
+    margin-left: 0.5rem;
+    display: flex;
+    flex-grow: 1;
+    border-radius: 0.25rem;
+    border-width: 0;
+}
+
+@media (min-width: 1025px) {
+    .main-header-search-bar {
+        margin-left: 0;
+        border-width: 1px;
+    }
+}
+
+/*.selectbox-inner div {*/
+/*  width: -moz-max-content;*/
+/*  width: max-content*/
+/*}*/

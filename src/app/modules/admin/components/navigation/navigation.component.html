@@ -1,0 +1,128 @@
+<aside class="main-navigation flex h-full main-nav">
+    <div class="main-navigation-container h-full">
+        <div
+            class="main-navigation flex flex-col h-full bg-light-3 border-r border-light-1 w-50 filter-box-shadow"
+            translate="no"
+        >
+            <a aria-label="Quizizz" title="Quizizz">
+                <div
+                    class="quizizz-logo-container w-full flex h-10 m-2 cursor-pointer"
+                    (click)="handleNavigation(routers[0])"
+                >
+                    <img
+                        aria-hidden="true"
+                        class="logo"
+                        height="40"
+                        width="146"
+                        ngSrc="https://cf.quizizz.com/img/logos/Purple.webp"
+                        alt="logo"
+                    />
+                </div>
+            </a>
+            <div class="user-details">
+                <div class="pb-2 p-4 user-section">
+                    <div class="max-w-min">
+                        <div class="relative min-w-40 max-w-40">
+                            <div class="flex items-center mb-3">
+                                <div class="w-full">
+                                    <a
+                                        href="/profile/66ec3cdd8858d3ebf38ddc79"
+                                        class="inline-block w-full text-sm font-semibold text-dark-2 cursor-pointer"
+                                    >
+                                        <div>
+                                            <span
+                                                class="inline-block align-bottom"
+                                            >
+                                                {{
+                                                    currentUser.username ||
+                                                        currentUser.email ||
+                                                        (currentUser.firstName
+                                                            ? currentUser.firstName +
+                                                              ' '
+                                                            : '') +
+                                                            (currentUser.lastName ||
+                                                                '')
+                                                }}
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4 relative block px-4 w-full">
+                <app-button
+                    title="Create"
+                    variant="primary"
+                    (onClick)="handleClick()"
+                    [fontWeight]="'semibold'"
+                    [fontSize]="'lg'"
+                    [boxShadow]="true"
+                >
+                    <i
+                        class="flex items-center far fa-plus-circle mr-2"
+                        style="font-size: 16px"
+                    ></i>
+                </app-button>
+            </div>
+            <div
+                class="sidebar-navigation flex flex-col overflow-y-auto justify-between h-full"
+            >
+                <div>
+                    <ng-container *ngFor="let router of routers">
+                        <ng-container
+                            *ngTemplateOutlet="
+                                menu;
+                                context: { $implicit: router }
+                            "
+                        ></ng-container>
+                    </ng-container>
+                    <button
+                        aria-label="Less"
+                        class="link flex w-full items-center py-2 pl-4 hover:bg-dark-5% cursor-pointer text-dark-3"
+                        type="button"
+                        (click)="handleExpandNav(!isExpandNav)"
+                    >
+                        <div class="flex justify-center w-6 icon">
+                            <i
+                                class="flex items-center far {{
+                                    isExpandNav
+                                        ? 'fa-chevron-up'
+                                        : 'fa-chevron-down'
+                                }}"
+                                style="font-size: 12px"
+                            ></i>
+                        </div>
+                        <div class="text-sm title ml-1">
+                            <span>{{ isExpandNav ? 'Less' : 'More' }}</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<ng-template #menu let-router>
+    <a
+        class="link flex items-center pl-4 whitespace-nowrap w-full hover:bg-light-1 cursor-pointer py-2"
+        [ngClass]="{
+            'router-link-active router-link-exact-active active text-lilac font-semibold bg-light-1':
+                router.active === true,
+            'text-dark-4': router.active === false,
+        }"
+        [attr.aria-label]="router.label"
+        (click)="handleNavigation(router)"
+    >
+        <div class="flex items-center w-full">
+            <div class="flex items-center justify-center w-6">
+                <ng-container *ngComponentOutlet="router.icon"></ng-container>
+            </div>
+            <span class="text-sm whitespace-nowrap pl-1">{{
+                router.label
+            }}</span>
+        </div>
+    </a>
+</ng-template>

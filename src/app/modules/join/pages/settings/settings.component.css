@@ -1,0 +1,552 @@
+.settings-page {
+    z-index: 2;
+    position: relative;
+}
+
+@media screen and (min-width: 576px) {
+    .settings-page {
+        max-width: 1366px;
+        margin: 0 auto;
+        padding: 0 50px 50px;
+    }
+}
+
+.settings-page-content {
+    z-index: 2;
+    min-height: 100vh;
+    padding: 16px 16px 84px;
+    position: relative;
+}
+
+@media screen and (min-width: 576px) {
+    .settings-page-content {
+        border-radius: 16px;
+        margin-top: 56px;
+    }
+}
+
+.settings-page-topbar {
+    text-align: center;
+    margin-bottom: 16px;
+    display: none;
+}
+
+@media screen and (min-width: 576px) {
+    .settings-page-topbar {
+        display: block;
+    }
+}
+
+.settings-page-heading {
+    color: #292a3a;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.settings-group-container {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 480px;
+    margin: auto auto 16px;
+    padding: 12px 12px 16px;
+    box-shadow: 0 4px #e5e5e5;
+}
+
+.settings-group-topbar {
+    text-align: left;
+    margin-bottom: 4px;
+}
+
+.settings-group-heading {
+    color: #9d9da4;
+    margin-left: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+}
+
+.settings-input-container {
+    background-color: #0000;
+    border: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    display: flex;
+    position: relative;
+}
+
+.settings-input-container.themes {
+    height: auto;
+}
+
+button.settings-input-container {
+    cursor: pointer;
+}
+
+.settings-input-container.has-chevron:after {
+    content: '>';
+    color: #9d9da4;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+}
+
+.settings-input-container.has-chevron:hover:after {
+    color: #ebb130;
+}
+
+.toggle-button {
+    position: absolute;
+    right: 0;
+}
+
+.settings-input-title {
+    color: #292a3a;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.read-aloud-settings-title {
+    position: relative;
+}
+
+.settings-input-content {
+    text-align: left;
+    color: #9d9da4;
+    font-size: 14px;
+}
+
+.settings-group-profile-icon {
+    color: #efa929;
+}
+
+.settings-group-game-icon {
+    color: #2d9da6;
+}
+
+.settings-group-account-icon {
+    color: #d5546d;
+}
+
+.settings-theme-btn {
+    vertical-align: top;
+    cursor: pointer;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 8px;
+    width: 72px;
+    height: 72px;
+    margin: 8px 8px 0 0;
+    display: inline-block;
+}
+
+.settings-theme-btn:last-of-type {
+    margin-right: 0;
+}
+
+.settings-theme-btn .settings-theme-title {
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    display: block;
+    overflow: hidden;
+}
+
+.settings-theme-btn.selected {
+    background-color: #8854c0;
+}
+
+.settings-theme-btn.selected .settings-theme-title {
+    color: #fff;
+}
+
+@media screen and (max-width: 360px) {
+    .settings-theme-btn {
+        width: 58px;
+    }
+}
+
+.settings-theme-image {
+    width: 34px;
+    height: 40px;
+    margin: 4px auto 3px;
+}
+
+.settings-footer {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+.settings-footer-link {
+    color: #6b6c77;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.featured-wrapper {
+    background-color: #f9f9f9;
+}
+
+@keyframes move-665f9908 {
+    0% {
+        opacity: 0;
+        left: 0;
+    }
+
+    5% {
+        opacity: 0;
+    }
+
+    48% {
+        opacity: 0.2;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    to {
+        left: 82%;
+    }
+}
+
+@keyframes slide-665f9908 {
+    0% {
+        transform: translate(-100%);
+    }
+
+    to {
+        transform: translate(100%);
+    }
+}
+
+.theme-icon-wrapper {
+    position: relative;
+}
+
+.theme-icon {
+    background-image: url(https://cf.quizizz.com/image/student_summary_sprite_full.png);
+    background-size: 267px;
+    width: 34px;
+    height: 34px;
+    position: absolute;
+}
+
+.theme-icon-container.random .theme-icon {
+    background-position: -226px -379px;
+}
+
+.theme-icon-container.classic .theme-icon {
+    background-image: url(https://cf.quizizz.com/themes/classic/classic_icon.png);
+    background-position: 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+}
+
+.theme-icon-container.classic .apply-theme-bg {
+    background-color: #461a42;
+}
+
+.theme-icon-container.classic.apply-border {
+    border-style: solid;
+    border-color: #8845c0;
+}
+
+.theme-icon-container.synthwave .theme-icon,
+.theme-icon-container.dogsville .theme-icon,
+.theme-icon-container.the8Bit .theme-icon,
+.theme-icon-container.anime .theme-icon,
+.theme-icon-container.football .theme-icon,
+.theme-icon-container.nineties .theme-icon,
+.theme-icon-container.snowfi .theme-icon {
+    background-image: url(https://cf.quizizz.com/themes/theme_icons_250.jpg);
+    background-repeat: no-repeat;
+    background-size: 250px;
+}
+
+.theme-icon-container.cosmic-picnic .theme-icon {
+    background-image: url(https://cf.quizizz.com/themes/cosmicPicnic/cosmicAvatar.png);
+    background-size: contain;
+}
+
+.theme-icon-container.halloween2024 .theme-icon {
+    background-image: url(https://cf.quizizz.com/image/halloweenIcon.jpg);
+    background-size: contain;
+}
+
+.theme-icon-container.winter .theme-icon {
+    background-image: url(https://cf.quizizz.com/themes/winter2023/Avatar.png);
+    background-size: contain;
+}
+
+.theme-icon-container.synthwave .theme-icon {
+    background-position: 0 0;
+}
+
+.theme-icon-container.synthwave .apply-theme-bg {
+    background-color: #5c1730;
+}
+
+.theme-icon-container.synthwave.apply-border {
+    border-style: solid;
+    border-color: #31a7c6;
+}
+
+.theme-icon-container.dogsville .theme-icon {
+    background-position: -45px 0;
+}
+
+.theme-icon-container.dogsville .apply-theme-bg {
+    background-color: #5a2f1a;
+}
+
+.theme-icon-container.dogsville.apply-border {
+    border-style: solid;
+    border-color: #caaf98;
+}
+
+.theme-icon-container.the8Bit .theme-icon {
+    background-position: -86px 0;
+}
+
+.theme-icon-container.the8Bit .apply-theme-bg {
+    background-color: #14101a;
+}
+
+.theme-icon-container.the8Bit.apply-border {
+    border-style: solid;
+    border-color: #fbd958;
+}
+
+.theme-icon-container.anime .theme-icon {
+    background-position: -128px 0;
+}
+
+.theme-icon-container.anime .apply-theme-bg {
+    background-color: #0c0203;
+}
+
+.theme-icon-container.anime.apply-border {
+    border-style: solid;
+    border-color: #dd935c;
+}
+
+.theme-icon-container.football .theme-icon {
+    background-position: -172px 0;
+}
+
+.theme-icon-container.football .apply-theme-bg {
+    background-color: #af2519;
+}
+
+.theme-icon-container.football.apply-border {
+    border-style: solid;
+    border-color: #fff;
+}
+
+.theme-icon-container.nineties .theme-icon {
+    background-position: -212px 0;
+}
+
+.theme-icon-container.nineties .apply-theme-bg {
+    background-color: #000;
+}
+
+.theme-icon-container.nineties.apply-border {
+    border-style: solid;
+    border-color: #b72c56;
+}
+
+.theme-icon-container.cosmic-picnic .theme-icon {
+    background-size: contain;
+}
+
+.theme-icon-container.cosmic-picnic .apply-theme-bg {
+    background-color: #0c0203;
+}
+
+.theme-icon-container.cosmic-picnic.apply-border {
+    border-style: solid;
+    border-color: #337f9d;
+}
+
+.theme-icon-container.halloween .theme-icon {
+    background-size: contain;
+}
+
+.theme-icon-container.halloween .apply-theme-bg {
+    background-color: #0c0203;
+}
+
+.theme-icon-container.halloween.apply-border {
+    border-style: solid;
+    border-color: #337f9d;
+}
+
+.toggle-button {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #d5d5d5;
+    border: 1px solid #d5d5d5;
+    border-radius: 20px;
+    width: 38px;
+    height: 20px;
+    line-height: 20px;
+    transition: all 0.21s;
+    display: inline-block;
+    overflow: hidden;
+    transform: rotate(0);
+}
+
+.toggle-button:after {
+    content: '';
+    background-color: #fff;
+    border-radius: 18px;
+    width: 18px;
+    height: 18px;
+    transition:
+        left 0.23s,
+        width 0.23s,
+        background-color 0.23s;
+    position: absolute;
+    top: 0;
+    left: 1px;
+}
+
+.toggle-button > span {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 25px;
+}
+
+.toggle-button .open {
+    display: none;
+}
+
+.toggle-button .close {
+    display: inline-block;
+}
+
+.toggle-button.on {
+    background-color: #0c6;
+    border-color: #0c6;
+}
+
+.toggle-button.on:after {
+    left: 19px;
+}
+
+.toggle-button.on > span {
+    left: 10px;
+}
+
+.toggle-button.on .open {
+    display: inline;
+}
+
+.toggle-button.on .close {
+    display: none;
+}
+
+.disabled {
+    background-color: #292a3a1a;
+}
+
+button.settings-input-container:hover {
+    color: #8854c0;
+    background-color: #8854c01a;
+}
+
+.update-settings-modal {
+    background-color: #fff;
+    border-radius: 8px;
+    width: calc(100% - 24px);
+    max-width: 420px;
+    min-height: 40px;
+    margin: 0 auto;
+    padding: 24px 24px 16px;
+}
+
+.update-settings-feedback {
+    padding: 8px 8px 0;
+    font-size: 14px;
+}
+
+.update-settings-buttons-container {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 24px;
+    display: flex;
+}
+
+.update-settings-buttons-container {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 24px;
+    display: flex;
+}
+
+.update-settings-buttons-container button {
+    color: #9d9da4;
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-left: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.strip-default-btn-style {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: #0000;
+    border: 0;
+    text-decoration: none;
+}
+
+.update-settings-buttons-container button.primary {
+    color: #efa929;
+    background-color: #fceed5;
+    height: 42px;
+    position: relative;
+}
+
+.update-settings-instructions,
+.update-settings-classes {
+    color: #9d9da4;
+    margin-bottom: 16px;
+    font-size: 14px;
+    display: block;
+}
+
+.update-settings-input {
+    border: 1px solid #9d9da4;
+    border-radius: 8px;
+    width: 100%;
+    height: 40px;
+    padding: 0 8px;
+    font-size: 16px;
+}
+
+.update-settings-feedback .error {
+    color: #ec0b43;
+}
+
+.update-settings-password-title,
+.update-settings-name-title {
+    margin-top: 8px;
+    font-size: 14px;
+    display: block;
+}
